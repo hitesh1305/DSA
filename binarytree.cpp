@@ -26,7 +26,6 @@ Node* insert(Node* root, int value) {
     return root;
 }
 
-// Function to find the minimum value node in a tree
 Node* findMin(Node* root) {
     while (root->left != nullptr) {
         root = root->left;
@@ -34,7 +33,6 @@ Node* findMin(Node* root) {
     return root;
 }
 
-// Function to delete a node from the binary tree
 Node* deleteNode(Node* root, int value) {
     if (root == nullptr) {
         return root;
@@ -55,8 +53,7 @@ Node* deleteNode(Node* root, int value) {
             delete root;
             return temp;
         }
-        
-        // Node with two children: Get the inorder successor (smallest in the right subtree)
+
         Node* temp = findMin(root->right);
         root->data = temp->data;
         root->right = deleteNode(root->right, temp->data);
@@ -64,7 +61,6 @@ Node* deleteNode(Node* root, int value) {
     return root;
 }
 
-// Inorder
 void inorder(Node* root) {
     if (root != nullptr) {
         inorder(root->left);
